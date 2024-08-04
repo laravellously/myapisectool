@@ -35,7 +35,7 @@ export class ExampleComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void {
       // Get the FAQs
-      this._service.results$
+      this._exampleService.results$
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe((results) => {
           this.results = results;
