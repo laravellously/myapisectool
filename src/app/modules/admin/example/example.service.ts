@@ -17,4 +17,7 @@ export class ExampleService {
         })
       );
   }
+  postScanRequest() {
+    return this._httpClient.post('/api/scan/new')
+  }
 }
