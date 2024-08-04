@@ -1,5 +1,5 @@
 import { Observable, ReplaySubject, tap } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Result } from "./example.types"
 
 @Injectable({ providedIn: 'root' })
