@@ -1,5 +1,5 @@
 import { Observable, ReplaySubject, tap } from 'rxjs';
-import { Result } from "./example.types.ts"
+import { Result } from "./example.types"
 
 @Injectable({ providedIn: 'root' })
 export class ExampleService {
