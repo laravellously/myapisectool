@@ -53,8 +53,8 @@ export class AuthMockApi {
             .reply(({ request }) => {
                 // Sign in successful
                 if (
-                    request.body.email === 'hughes.brian@company.com' &&
-                    request.body.password === 'admin'
+                    request.body.email === 'stephen@myapisectool.com' &&
+                    request.body.password === 'p@$$w0rd'
                 ) {
                     return [
                         200,
