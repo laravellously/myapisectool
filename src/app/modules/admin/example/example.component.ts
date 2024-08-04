@@ -21,6 +21,8 @@ import { Result } from "./example.types"
 export class ExampleComponent implements OnInit, OnDestroy
 {
   results: Result[]
+  inputValue: string = '';
+  isLoading: boolean = false;
   private _unsubscribeAll: Subject<any> = new Subject();
     /**
      * Constructor
@@ -64,5 +66,18 @@ export class ExampleComponent implements OnInit, OnDestroy
      */
     trackByFn(index: number, item: any): any {
       return item.id || index;
+    }
+    
+    onSubmit() {
+      if (this.inputValue.trim() && !this.isLoading) {
+        this.isLoading = true;
+        console.log('Submitted value:', this.inputValue);
+  
+        // Simulate an async operation (e.g., API call)
+        setTimeout(() => {
+          this.isLoading = false;
+          this.inputValue = ''; // Clear the input after submission
+        }, 10000); // Simulate 10 seconds of loading time
+      }
     }
 }

@@ -31,9 +31,17 @@
             >
                 <input
                     matInput
-                    [placeholder]="'API url'"
+                    [(ngModel)]="inputValue"
+                    (keyup.enter)="onSubmit()"
+                    [disabled]="isLoading"
+                    [placeholder]="'Enter API url and press enter'"
                 />
                 <mat-icon
+                    matPrefix
+                    [svgIcon]="'heroicons_outline:magnifying-glass'"
+                ></mat-icon>
+                 <mat-icon
+                 *ngIf="isLoading"
                     matPrefix
                     [svgIcon]="'heroicons_outline:magnifying-glass'"
                 ></mat-icon>
