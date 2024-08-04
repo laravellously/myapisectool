@@ -24,7 +24,7 @@ export class ExampleComponent implements OnInit, OnDestroy
     /**
      * Constructor
      */
-    constructor(private _service: ExampleService) {}
+    constructor(private _exampleService: ExampleService) {}
     
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
