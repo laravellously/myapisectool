@@ -37,13 +37,14 @@
                     [placeholder]="'Enter API url and press enter'"
                 />
                 <mat-icon
+                *ngIf=!"isLoading"
                     matPrefix
                     [svgIcon]="'heroicons_outline:magnifying-glass'"
                 ></mat-icon>
-                 <mat-icon
+                 <mat-icon class="animate-bounce"
                  *ngIf="isLoading"
                     matPrefix
-                    [svgIcon]="'heroicons_outline:magnifying-glass'"
+                    [svgIcon]="'heroicons_outline:sparkles'"
                 ></mat-icon>
             </mat-form-field>
         </div>

@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'app/core/auth/auth.service';
 import { Result } from "./example.types"
@@ -15,7 +16,8 @@ import { Result } from "./example.types"
     imports: [
       MatFormFieldModule,
       MatInputModule,
-      MatIconModule
+      MatIconModule,
+      FormsModule
     ],
 })
 export class ExampleComponent implements OnInit, OnDestroy
