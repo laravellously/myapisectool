@@ -4,8 +4,9 @@ import { Result } from "./example.types"
 
 @Injectable({ providedIn: 'root' })
 export class ExampleService {
+  private _httpClient = inject(HttpClient);
   private _results: ReplaySubject<Result[]> = new ReplaySubject<Result[]>(1);
-  constructor(private _httpClient: HttpClient) {}
+  // constructor(private _httpClient: HttpClient) {}
   get results$(): Observable < Result[] > {
     return this._results.asObservable();
   }
