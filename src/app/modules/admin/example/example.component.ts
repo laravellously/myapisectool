@@ -24,7 +24,7 @@ export class ExampleComponent implements OnInit, OnDestroy
     /**
      * Constructor
      */
-    constructor(private _exampleService: ExampleService) {}
+    constructor(private _authService: AuthService) {}
     
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -35,7 +35,7 @@ export class ExampleComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void {
       // Get the FAQs
-      this._exampleService.results$
+      this._authService.results$
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe((results) => {
           this.results = results;

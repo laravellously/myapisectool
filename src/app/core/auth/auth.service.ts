@@ -3,12 +3,18 @@ import { inject, Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
 import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
+import { Result } from 'app/modules/admin/example/example.types' 
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     private _authenticated: boolean = false;
     private _httpClient = inject(HttpClient);
     private _userService = inject(UserService);
+    private _results: ReplaySubject < Result[] > = new ReplaySubject < Result[] > (1);
+    
+    get results$(): Observable < Result[] > {
+      return this._results.asObservable();
+    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
@@ -28,6 +34,20 @@ export class AuthService {
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
+
+    getAllResults(): Observable < Result[] > {
+      return this._httpClient
+        .get < Result[] > ('/backend/results/get_list?page=1')
+        .pipe(
+          tap((response: any) => {
+            this._results.next(response);
+          })
+        );
+    }
+    
+    postScanRequest() {
+      return this._httpClient.post('/backend/new/scan')
+    }
 
     /**
      * Forgot password

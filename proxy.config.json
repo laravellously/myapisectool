@@ -1,5 +1,5 @@
 {
-  "/api": {
+  "/backend": {
     "target": "https://83.229.86.75:5000",
     "secure": false,
     "changeOrigin": true
