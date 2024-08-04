@@ -45,9 +45,9 @@ export class AuthService {
         );
     }
     
-    postScanRequest() {
-      return this._httpClient.post('/backend/new/scan')
-    }
+    // postScanRequest() {
+    //   return this._httpClient.post('/backend/new/scan')
+    // }
 
     /**
      * Forgot password
