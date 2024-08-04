@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Subject, takeUntil } from 'rxjs';
+import { AuthService } from 'app/core/auth/auth.service';
 import { Result } from "./example.types"
 
 @Component({

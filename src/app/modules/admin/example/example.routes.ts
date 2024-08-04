@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ExampleComponent } from 'app/modules/admin/example/example.component';
-import { ExampleService } from 'app/modules/admin/example/example.service';
+import { AuthService } from 'app/core/auth/auth.service';
+
 
 export default [
     {
@@ -8,7 +9,7 @@ export default [
         component: ExampleComponent,
         resolve: {
           results: () =>
-            inject(ExampleService).getAllResults(),
+            inject(AuthService).getAllResults(),
         },
     },
 ] as Routes;
