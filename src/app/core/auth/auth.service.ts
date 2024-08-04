@@ -37,7 +37,7 @@ export class AuthService {
 
     getAllResults(): Observable < Result[] > {
       return this._httpClient
-        .get < Result[] > ('/backend/results/get_list?page=1&key=jgujqnaunrvriqutgrawryyaioesfcti')
+        .get < Result[] > ('https://83.229.86.75:5000/results/get_list?page=1&key=jgujqnaunrvriqutgrawryyaioesfcti')
         .pipe(
           tap((response: any) => {
             this._results.next(response);
