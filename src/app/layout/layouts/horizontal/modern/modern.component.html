@@ -53,14 +53,21 @@
             ></fuse-horizontal-navigation>
         }
         <!-- Navigation toggle button -->
-       <!--  @if (isScreenSmall) {
+       @if (isScreenSmall) {
+       <div class="flex h-20 items-center px-8 pt-6">
+          <img
+              class="w-24"
+              src="images/logo/logo-text-on-dark.svg"
+              alt="Logo image"
+          />
+      </div><!-- 
            <button
                mat-icon-button
                (click)="toggleNavigation('mainNavigation')"
            >
                <mat-icon [svgIcon]="'heroicons_outline:bars-3'"></mat-icon>
-           </button>
-       } -->
+           </button> -->
+       }
         <!-- Components -->
         <div class="ml-auto flex items-center space-x-0.5 pl-2 sm:space-x-2">
             <!-- <languages></languages> -->
