@@ -3,7 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import Result from "./example.types.ts"
+import { Result } from "./example.types.ts"
 
 @Component({
     selector     : 'example',
