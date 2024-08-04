@@ -95,6 +95,8 @@
         <div class="text-secondary mt-2 text-center text-xl">
             Here are the previous scan resultts
         </div>
-        
+         @for (r of results; track trackByFn($index, results)) {
+         {{r}}
+         }
     </div>
 </div>
