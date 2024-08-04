@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
-import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
+import { catchError, ReplaySubject, Observable, of, switchMap, throwError } from 'rxjs';
 import { Result } from 'app/modules/admin/example/example.types' 
 
 @Injectable({ providedIn: 'root' })
