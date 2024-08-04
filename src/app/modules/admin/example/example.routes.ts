@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
 import { ExampleComponent } from 'app/modules/admin/example/example.component';
 import { AuthService } from 'app/core/auth/auth.service';
 
