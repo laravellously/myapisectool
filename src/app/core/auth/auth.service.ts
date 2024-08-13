@@ -40,6 +40,7 @@ export class AuthService {
         .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
         .pipe(
           tap((response: any) => {
+            console.log(response)
             this._results.next(response);
           })
         );
