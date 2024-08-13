@@ -37,7 +37,7 @@ export class AuthService {
 
     getAllResults(): Observable < Result[] > {
       return this._httpClient
-        .get < Result[] > ('https://server.samzugaskills.com/results/get_list?page=1&key=ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
+        .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
         .pipe(
           tap((response: any) => {
             this._results.next(response);
