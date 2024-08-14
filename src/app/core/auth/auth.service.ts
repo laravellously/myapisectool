@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
@@ -52,6 +52,8 @@ export class AuthService {
         targets: value,
         profile: 'information_gathering'
       }
+      const headers = new HttpHeaders()
+      .set('content-type', 'application/x-www-form-urlencoded')
       return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', options)
     }
 
