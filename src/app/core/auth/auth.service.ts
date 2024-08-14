@@ -56,10 +56,10 @@ export class AuthService {
         .set('key', 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
         .set('targets', value)
         .set('profile', 'information_gathering')
-      const headers = new HttpHeaders()
-      .set('content-type', 'application/x-www-form-urlencoded')
+      // const headers = new HttpHeaders()
+      // .set('content-type', 'application/x-www-form-urlencoded')
       
-      return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', body.toString(), headers)
+      return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', body)
     }
 
     /**
