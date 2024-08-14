@@ -88,7 +88,7 @@ export class ExampleComponent implements OnInit, OnDestroy
     }
     
     onSubmit() {
-      if (this.inputValue.trim() && !this.isLoading && isValidHttpUrl(this.inputValue)) {
+      if (this.inputValue.trim() && !this.isLoading && this.isValidHttpUrl(this.inputValue)) {
         this.isLoading = true;
         this._authService
           .postScanRequest(this.inputValue)
