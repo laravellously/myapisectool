@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+import { HotToastService } from '@ngxpert/hot-toast';
 import { AuthService } from 'app/core/auth/auth.service';
 import { Result } from "./example.types"
 
@@ -29,7 +30,10 @@ export class ExampleComponent implements OnInit, OnDestroy
     /**
      * Constructor
      */
-    constructor(private _authService: AuthService) {}
+    constructor(
+      private _authService: AuthService, 
+      private toast: HotToastService
+    ) {}
     
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -39,7 +43,7 @@ export class ExampleComponent implements OnInit, OnDestroy
      * On init
      */
     ngOnInit(): void {
-      // Get the FAQs
+      // Get the Results (working)
       this._authService.results$
         .pipe(takeUntil(this._unsubscribeAll))
         .subscribe((results) => {
@@ -70,16 +74,47 @@ export class ExampleComponent implements OnInit, OnDestroy
       return item.id || index;
     }
     
+    isValidHttpUrl(str) {
+      const pattern = new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$', // fragment locator
+        'i'
+      );
+      return pattern.test(str);
+    }
+    
     onSubmit() {
-      if (this.inputValue.trim() && !this.isLoading) {
+      if (this.inputValue.trim() && !this.isLoading && isValidHttpUrl(this.inputValue)) {
         this.isLoading = true;
-        console.log('Submitted value:', this.inputValue);
+        this._authService
+          .postScanRequest(this.inputValue)
+          .pipe(
+            this.toast.observe({
+              loading: 'Scanning...',
+              success: 'Scan complete!',
+              error: 'Could not complete scan.',
+            })
+          )
+          .subscribe();
+        // console.log('Submitted value:', this.inputValue);
   
         // Simulate an async operation (e.g., API call)
         setTimeout(() => {
           this.isLoading = false;
           this.inputValue = ''; // Clear the input after submission
+          this._authService.getAllResults()
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((results) => {
+              console.log("Latest results: ", results)
+              this.results = results;
+            });
         }, 10000); // Simulate 10 seconds of loading time
+      } else {
+        this.toast.error('Invalid URL')
       }
     }
 }

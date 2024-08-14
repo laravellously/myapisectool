@@ -17,6 +17,8 @@ import { provideIcons } from 'app/core/icons/icons.provider';
 import { mockApiServices } from 'app/mock-api';
 import { firstValueFrom } from 'rxjs';
 import { TranslocoHttpLoader } from './core/transloco/transloco.http-loader';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
+
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -127,5 +129,6 @@ export const appConfig: ApplicationConfig = {
                 ],
             },
         }),
+        provideHotToastConfig()
     ],
 };

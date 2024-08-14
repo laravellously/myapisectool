@@ -46,9 +46,14 @@ export class AuthService {
         );
     }
     
-    // postScanRequest() {
-    //   return this._httpClient.post('/backend/new/scan')
-    // }
+    postScanRequest(value: string): Observable<any> {
+      const options = {
+        key: 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk',
+        targets: value,
+        profile: 'information_gathering'
+      }
+      return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', options)
+    }
 
     /**
      * Forgot password
