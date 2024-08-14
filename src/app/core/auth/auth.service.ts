@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
@@ -47,14 +47,19 @@ export class AuthService {
     }
     
     postScanRequest(value: string): Observable<any> {
-      const options = {
-        key: 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk',
-        targets: value,
-        profile: 'information_gathering'
-      }
+      // const options = {
+      //   key: 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk',
+      //   targets: value,
+      //   profile: 'information_gathering'
+      // }
+      const body = new HttpParams()
+        .set('key', 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
+        .set('targets', value)
+        .set('profile', 'information_gathering')
       const headers = new HttpHeaders()
       .set('content-type', 'application/x-www-form-urlencoded')
-      return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', options)
+      
+      return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', body.toString(), headers)
     }
 
     /**
