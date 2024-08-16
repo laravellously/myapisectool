@@ -96,17 +96,17 @@
             </div>
         </div>
         <!-- FAQs -->
-        <div
+        <!-- <div
             class="mt-24 text-center text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl"
         >
             Scans History
         </div>
         <div class="text-secondary mt-2 text-center text-xl">
             Here are the previous scan resultts
-        </div>
-         @for (r of results; track trackByFn($index, results)) {
+        </div> -->
+         <!-- @for (r of results; track trackByFn($index, results)) {
          {{r.id}}
-         }
+         } -->
     </div>
     <div class="absolute inset-0 flex min-w-0 flex-col overflow-hidden">
       <div
@@ -145,7 +145,7 @@
 
                 <!-- Contacts list -->
                 <div class="relative">
-                    @if (results$ | async; as results) {
+                    @if (results) {
                         @if (results.length) {
                             @for (
                                 result of results;
