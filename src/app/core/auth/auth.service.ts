@@ -35,7 +35,7 @@ export class AuthService {
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 
-    async getAllResults(): Observable < Result[] > {
+    async getAllResults(): Promise<Observable<Result[]>> {
       return await this._httpClient
         .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco')
         .pipe(
