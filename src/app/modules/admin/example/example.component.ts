@@ -74,6 +74,23 @@ export class ExampleComponent implements OnInit, OnDestroy
       return item.id || index;
     }
     
+    refetchResults(){
+      // Get the Results (working)
+      this._authService.results$
+        .pipe(
+          this.toast.observe({
+            loading: 'Fetching scans...',
+            success: 'Fetch completed!',
+            error: 'Could not complete fetch.',
+          }))
+        .pipe(takeUntil(this._unsubscribeAll))
+          // takeUntil(this._unsubscribeAll)
+        .subscribe((results) => {
+          console.log("Refetch results: ", results)
+          this.results = results;
+        });
+    }
+    
     isValidHttpUrl(str) {
       const pattern = new RegExp(
         '^(https?:\\/\\/)?' + // protocol
@@ -106,13 +123,13 @@ export class ExampleComponent implements OnInit, OnDestroy
         setTimeout(() => {
           this.isLoading = false;
           this.inputValue = ''; // Clear the input after submission
-          this._authService.getAllResults()
+          this._authService.results$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((results) => {
               console.log("Latest results: ", results)
               this.results = results;
             });
-        }, 10000); // Simulate 10 seconds of loading time
+        }, 20000); // Simulate 20 seconds of loading time
       } else {
         this.toast.error('Invalid URL')
       }

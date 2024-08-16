@@ -35,12 +35,12 @@ export class AuthService {
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 
-    getAllResults(): Observable < Result[] > {
-      return this._httpClient
-        .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
+    async getAllResults(): Observable < Result[] > {
+      return await this._httpClient
+        .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco')
         .pipe(
           tap((response: any) => {
-            console.log(response)
+            // console.log(response)
             this._results.next(response);
           })
         );
@@ -53,11 +53,11 @@ export class AuthService {
       //   profile: 'information_gathering'
       // }
       const body = new HttpParams()
-        .set('key', 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk')
+        .set('key', 'jrvophcjpkdnlwqcfzxoqsxfnackpjco')
         .set('targets', value)
-        .set('profile', 'information_gathering')
+        .set('profiles', 'information_gathering')
       // const headers = new HttpHeaders()
-      // .set('content-type', 'application/x-www-form-urlencoded')
+      // .set('content-type', 'application/x-www-form-urlencoded')1q¹
       
       return this._httpClient.post('https://scanner.samzugaskills.com/new/scan', body)
     }

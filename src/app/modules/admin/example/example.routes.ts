@@ -8,9 +8,9 @@ export default [
     {
         path     : '',
         component: ExampleComponent,
-        resolve: {
-          results: () =>
-            inject(AuthService).getAllResults(),
-        },
+        // resolve: {
+        //   results: () =>
+        //     inject(AuthService).getAllResults(),
+        // },
     },
 ] as Routes;
