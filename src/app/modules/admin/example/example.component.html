@@ -1,13 +1,11 @@
 <div class="flex min-w-0 flex-auto flex-col">
     <!-- Header -->
-    <div
-        class="dark relative overflow-hidden bg-gray-800 px-4 pb-28 pt-8 dark:bg-gray-900 sm:px-16 sm:pb-48 sm:pt-20"
-    >
+    <div class="dark relative overflow-hidden bg-gray-800 px-4 pb-28 pt-8 dark:bg-gray-900 sm:px-16 sm:pb-48 sm:pt-20">
         <!-- Background -->
         <!-- Rings -->
         <!-- prettier-ignore -->
-        <svg class="absolute inset-0 pointer-events-none"
-             viewBox="0 0 960 540" width="100%" height="100%" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <svg class="absolute inset-0 pointer-events-none" viewBox="0 0 960 540" width="100%" height="100%"
+            preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
             <g class="text-gray-700 opacity-25" fill="none" stroke="currentColor" stroke-width="100">
                 <circle r="234" cx="196" cy="23"></circle>
                 <circle r="234" cx="790" cy="491"></circle>
@@ -15,37 +13,20 @@
         </svg>
         <div class="relative z-10 flex flex-col items-center">
             <h2 class="text-xl font-semibold">MY APISEC TOOL</h2>
-            <div
-                class="mt-1 text-center text-4xl font-extrabold leading-tight tracking-tight sm:text-7xl"
-            >
-               Enter API url to scan
+            <div class="mt-1 text-center text-4xl font-extrabold leading-tight tracking-tight sm:text-7xl">
+                Enter API url to scan
             </div>
-            <div
-                class="text-secondary mt-3 text-center tracking-tight sm:text-2xl"
-            >
-              Identify and fix security vulnerabilities quickly and easily, ensuring the safety of your API endpoint and your peace of mind.
+            <div class="text-secondary mt-3 text-center tracking-tight sm:text-2xl">
+                Identify and fix security vulnerabilities quickly and easily, ensuring the safety of your API endpoint
+                and your peace of mind.
             </div>
-            <mat-form-field
-                class="fuse-mat-rounded fuse-mat-bold mt-10 w-full max-w-80 sm:mt-20 sm:max-w-120"
-                [subscriptSizing]="'dynamic'"
-            >
-                <input
-                    matInput
-                    [(ngModel)]="inputValue"
-                    (keyup.enter)="onSubmit()"
-                    [disabled]="isLoading"
-                    [placeholder]="'Enter API url and press enter'"
-                />
-                <mat-icon
-                *ngIf="!isLoading"
-                    matPrefix
-                    [svgIcon]="'heroicons_outline:magnifying-glass'"
-                ></mat-icon>
-                 <mat-icon  [class]="'animate-bounce'"
-                 *ngIf="isLoading"
-                    matPrefix
-                    [svgIcon]="'heroicons_outline:sparkles'"
-                ></mat-icon>
+            <mat-form-field class="fuse-mat-rounded fuse-mat-bold mt-10 w-full max-w-80 sm:mt-20 sm:max-w-120"
+                [subscriptSizing]="'dynamic'">
+                <input matInput [(ngModel)]="inputValue" (keyup.enter)="onSubmit()" [disabled]="isLoading"
+                    [placeholder]="'Enter API url and press enter'" />
+                <mat-icon *ngIf="!isLoading" matPrefix [svgIcon]="'heroicons_outline:magnifying-glass'"></mat-icon>
+                <mat-icon [class]="'animate-bounce'" *ngIf="isLoading" matPrefix
+                    [svgIcon]="'heroicons_outline:sparkles'"></mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -53,44 +34,38 @@
     <div class="flex flex-col items-center px-6 pb-6 sm:px-10 sm:pb-10">
         <!-- Cards -->
         <div
-            class="-mt-16 grid w-full max-w-sm grid-cols-1 gap-y-8 sm:-mt-24 md:max-w-4xl md:grid-cols-3 md:gap-x-6 md:gap-y-0"
-        >
+            class="-mt-16 grid w-full max-w-sm grid-cols-1 gap-y-8 sm:-mt-24 md:max-w-4xl md:grid-cols-3 md:gap-x-6 md:gap-y-0">
             <!-- FAQs card -->
             <div
-                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg"
-            >
-                <div
-                    class="flex flex-auto flex-col items-center p-8 text-center"
-                >
+                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg">
+                <div class="flex flex-auto flex-col items-center p-8 text-center">
                     <div class="text-2xl font-semibold">Comprehensive</div>
                     <div class="text-secondary mt-1 md:max-w-40">
-                      Our scanner identifies a wide range of security vulnerabilities, including SQL injection, cross-site scripting (XSS), and insecure configurations, ensuring thorough protection for your website.
+                        Our scanner identifies a wide range of security vulnerabilities, including SQL injection,
+                        cross-site scripting (XSS), and insecure configurations, ensuring thorough protection for your
+                        website.
                     </div>
                 </div>
             </div>
             <!-- Guides card -->
             <div
-                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg"
-            >
-                <div
-                    class="flex flex-auto flex-col items-center p-8 text-center"
-                >
+                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg">
+                <div class="flex flex-auto flex-col items-center p-8 text-center">
                     <div class="text-2xl font-semibold">Intuitive</div>
                     <div class="text-secondary mt-1 md:max-w-40">
-                       With an intuitive design, our scanner makes it easy for anyone to perform security checks and understand the results, regardless of their technical expertise.
+                        With an intuitive design, our scanner makes it easy for anyone to perform security checks and
+                        understand the results, regardless of their technical expertise.
                     </div>
                 </div>
             </div>
             <!-- Support card -->
             <div
-                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg"
-            >
-                <div
-                    class="flex flex-auto flex-col items-center p-8 text-center"
-                >
+                class="bg-card relative flex flex-col overflow-hidden rounded-2xl shadow transition-shadow duration-150 ease-in-out hover:shadow-lg">
+                <div class="flex flex-auto flex-col items-center p-8 text-center">
                     <div class="text-2xl font-semibold">Real-time Alerts</div>
                     <div class="text-secondary mt-1 md:max-w-40">
-                       Receive instant notifications and detailed reports on any vulnerabilities found, along with actionable recommendations to quickly address and resolve security issues.
+                        Receive instant notifications and detailed reports on any vulnerabilities found, along with
+                        actionable recommendations to quickly address and resolve security issues.
                     </div>
                 </div>
             </div>
@@ -104,29 +79,23 @@
         <div class="text-secondary mt-2 text-center text-xl">
             Here are the previous scan resultts
         </div> -->
-         <!-- @for (r of results; track trackByFn($index, results)) {
+        <!-- @for (r of results; track trackByFn($index, results)) {
          {{r.id}}
          } -->
     </div>
-    <div class="absolute inset-0 flex min-w-0 flex-col overflow-hidden">
-      <div
-        class="bg-card h-full flex-auto dark:bg-transparent"
-    >
-        <div class="flex flex-col">
-            <!-- Main -->
-            <div class="flex-auto">
-                <!-- Header -->
-                <div
-                    class="flex flex-auto flex-col justify-between border-b px-6 py-8 sm:flex-row md:flex-col md:px-8"
-                >
-                    <!-- Title -->
-                    <div>
-                        <div
-                            class="text-4xl font-extrabold leading-none tracking-tight"
-                        >
-                            Scans History
-                        </div>
-                       <!--  <div class="text-secondary ml-0.5 font-medium">
+
+    <div class="flex flex-col">
+                <!-- Main -->
+                <div class="flex-auto">
+                    <!-- Header -->
+                    <div
+                        class="flex flex-auto flex-col justify-between border-b px-6 py-8 sm:flex-row md:flex-col md:px-8">
+                        <!-- Title -->
+                        <div>
+                            <div class="text-4xl font-extrabold leading-none tracking-tight">
+                                Scans History
+                            </div>
+                            <!--  <div class="text-secondary ml-0.5 font-medium">
                            @if (contactsCount > 0) {
                                {{ contactsCount }}
                            }
@@ -140,53 +109,45 @@
                                          }
                            }}
                        </div> -->
+                        </div>
+                    </div>
+
+                    <!-- Contacts list -->
+                    <div class="relative">
+                        @if (results) {
+                        @if (results.length) {
+                        @for (
+                        result of results;
+                        track trackByFn(i, result);
+                        let i = $index
+                        ) {
+
+                        Result
+                        <a class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10"
+                            href="https://scanner.samzugaskills.com/results/get?id={{result.id}}" target='_blank'>
+                            <div class="ml-4 min-w-0">
+                                <div class="truncate font-medium leading-5">
+
+                                    {{result['options']['targets']}}
+
+                                </div>
+                                <div class="text-secondary truncate leading-5">
+                                    {{result.scan_unique_id }}
+                                </div>
+                                <div>{{result.date}}</div>
+                            </div>
+                        </a>
+                        }
+                        } @else {
+                        <div class="border-t p-8 text-center text-4xl font-semibold tracking-tight sm:p-16">
+                            There are no results to show at this time!
+                        </div>
+                        }
+                        }
+
+                        No contacts
                     </div>
                 </div>
-
-                <!-- Contacts list -->
-                <div class="relative">
-                    @if (results) {
-                        @if (results.length) {
-                            @for (
-                                result of results;
-                                track trackByFn(i, result);
-                                let i = $index
-                            ) {
-                              
-                                <!--Result -->
-                                <a
-                                    class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10"  href="https://scanner.samzugaskills.com/results/get?id={{result.id}}" target='_blank'
-                                >
-                                    <div class="ml-4 min-w-0">
-                                        <div
-                                            class="truncate font-medium leading-5">
-                                        
-                                        {{result['options']['targets']}}
-                                          
-                                        </div>
-                                        <div
-                                            class="text-secondary truncate leading-5"
-                                        >
-                                            {{result.scan_unique_id }}
-                                        </div>
-                                        <div>{{result.date}}</div>
-                                    </div>
-                                </a>
-                            }
-                        } @else {
-                            <div
-                                class="border-t p-8 text-center text-4xl font-semibold tracking-tight sm:p-16"
-                            >
-                                There are no results to show at this time!
-                            </div>
-                        }
-                    }
-
-                    <!-- No contacts -->
-                </div>
             </div>
-        </div>
-    </div>
-    </div>
 
 </div>
