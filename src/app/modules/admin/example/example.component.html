@@ -84,70 +84,57 @@
          } -->
     </div>
 
-    <div class="flex flex-col">
-                <!-- Main -->
-                <div class="flex-auto">
-                    <!-- Header -->
-                    <div
-                        class="flex flex-auto flex-col justify-between border-b px-6 py-8 sm:flex-row md:flex-col md:px-8">
-                        <!-- Title -->
-                        <div>
-                            <div class="text-4xl font-extrabold leading-none tracking-tight">
-                                Scans History
-                            </div>
-                            <!--  <div class="text-secondary ml-0.5 font-medium">
-                           @if (contactsCount > 0) {
-                               {{ contactsCount }}
-                           }
-                           {{
-                               contactsCount
-                                   | i18nPlural
-                                       : {
-                                             '=0': 'No contacts',
-                                             '=1': 'contact',
-                                             other: 'contacts',
-                                         }
-                           }}
-                       </div> -->
-                        </div>
-                    </div>
+    <div class="flex flex-col px-6 pb-6 sm:px-10 sm:pb-10">
+      <!-- Main -->
+      <div class="flex-auto">
+          <!-- Header -->
+          <div
+              class="flex flex-auto flex-col justify-between border-b px-6 py-8 sm:flex-row md:flex-col md:px-8">
+              <!-- Title -->
+              <div>
+                  <div class="text-4xl font-extrabold leading-none tracking-tight">
+                      Scans History
+                  </div>
+              </div>
+          </div>
 
-                    <!-- Contacts list -->
-                    <div class="relative">
-                        @if (results) {
-                        @if (results.length) {
-                        @for (
-                        result of results;
-                        track trackByFn(i, result);
-                        let i = $index
-                        ) {
+          <!-- Contacts list -->
+          <div class="relative">
+              @if (results) {
+                @if (results.length) {
+                  @for (
+                    result of results; 
+                    track trackByFn(i, result);
+                    let i = $index
+                  ){
 
-                        Result
-                        <a class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10"
-                            href="https://scanner.samzugaskills.com/results/get?id={{result.id}}" target='_blank'>
-                            <div class="ml-4 min-w-0">
-                                <div class="truncate font-medium leading-5">
+                 <a class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10"
+                  href="https://scanner.samzugaskills.com/results/get?id={{result.id}}" target='_blank'>
+                  <div class="ml-4 min-w-0">
+                      <div class="truncate font-medium leading-5">
 
-                                    {{result['options']['targets']}}
+                          {{result['options']['targets']}}
 
-                                </div>
-                                <div class="text-secondary truncate leading-5">
-                                    {{result.scan_unique_id }}
-                                </div>
-                                <div>{{result.date}}</div>
-                            </div>
-                        </a>
-                        }
-                        } @else {
-                        <div class="border-t p-8 text-center text-4xl font-semibold tracking-tight sm:p-16">
-                            There are no results to show at this time!
-                        </div>
-                        }
-                        }
-
-                        No contacts
-                    </div>
-                </div>
-            </div>
+                      </div>
+                      <div class="text-secondary truncate leading-5">
+                          {{result.scan_unique_id }}
+                      </div>
+                      <div>{{result.date}}</div>
+                  </div>
+              </a>
+                   }
+              } @else {
+              <div class="border-t p-8 text-center text-4xl font-semibold tracking-tight sm:p-16">
+                  There are no results to show at this time!
+              </div>
+                }
+              } @else {
+               <div class="border-t p-8 bg-red-200 text-red-600 text-center text-4xl font-semibold tracking-tight sm:p-16">
+                 An error occured while loading results!
+               </div>
+              }
+          </div>
+      </div>
+  </div>
 
 </div>
