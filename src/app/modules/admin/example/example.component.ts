@@ -78,10 +78,10 @@ export class ExampleComponent implements OnInit, OnDestroy
     downloadResult(id, scan_id) {
       this._authService.getSingleResult(id)
         .subscribe((response) => {
-          response.replace('<title>OWASP Nettacker Report</title>', '<title>My Security Scan Tool v2 - Report</title>');
-          response.replace('<h3><a href="https://github.com/OWASP/Nettacker">OWASP Nettacker</a></h3>', '<h2>API Security Scan Report</h2>')
-          response.replace('<p class="footer">Software Details: OWASP Nettacker version 0.3.3 [TRENT] in 2024-08-14 01:42:48</p>', '<p class="footer">Software Details: API Security Scan Tool by Stephen Bitrus version 2.0.0-final</p>')
-          const blob = new Blob([response], { type: 'text/html' });
+          let res = response.replace('<title>OWASP Nettacker Report</title>', '<title>API Security Scan Tool v2 - Report</title>');
+          res = res.replace('<h3><a href="https://github.com/OWASP/Nettacker">OWASP Nettacker</a></h3>', '<h2>API Security Scan Report</h2>')
+          res = res.replace('<p class="footer">Software Details: OWASP Nettacker version 0.3.3 [TRENT] in 2024-08-14 01:42:48</p>', '<p class="footer">Software Details: API Security Scan Tool by Stephen Bitrus version 2.0.0-final</p>')
+          const blob = new Blob([res], { type: 'text/html' });
           saveAs(blob, 'scan-'+scan_id+'.html');
         })
     }
