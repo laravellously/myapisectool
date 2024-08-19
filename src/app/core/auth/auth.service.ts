@@ -48,7 +48,7 @@ export class AuthService {
     
     getSingleResult(id: any): Observable<any> {
       return this._httpClient
-        .get('https://scanner.samzugaskills.com/results/get?id='+id+'&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco')
+        .get('https://scanner.samzugaskills.com/results/get?id='+id+'&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco', { responseType: 'text' })
     }
     
     postScanRequest(value: string): Observable<any> {

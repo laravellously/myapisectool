@@ -86,7 +86,7 @@ export class ExampleComponent implements OnInit, OnDestroy
     
     refetchResults(){
       // Get the Results (working)
-      this._authService.results$
+      this._authService.getAllResults()
         .pipe(
           this.toast.observe({
             loading: 'Fetching scans...',
@@ -131,14 +131,16 @@ export class ExampleComponent implements OnInit, OnDestroy
   
         // Simulate an async operation (e.g., API call)
         setTimeout(() => {
-          this.isLoading = false;
-          this.inputValue = ''; // Clear the input after submission
-          this._authService.results$
+          this._authService.getAllResults()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((results) => {
               console.log("Latest results: ", results)
               this.results = results;
             });
+          
+          this.isLoading = false;
+          this.inputValue = ''; // Clear the input after submission
+          
         }, 20000); // Simulate 20 seconds of loading time
       } else {
         this.toast.error('Invalid URL')
