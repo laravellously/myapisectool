@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { AuthService } from 'app/core/auth/auth.service';
+import { saveAs } from 'file-saver';
 import { Result } from "./example.types"
 
 @Component({
@@ -72,6 +73,15 @@ export class ExampleComponent implements OnInit, OnDestroy
      */
     trackByFn(index: number, item: any): any {
       return item.id || index;
+    }
+    
+    downloadResult(id, scan_id) {
+      this._authService.getSingleResult(id)
+        .subscribe((response) => {
+          const newHtml = response.replace('<title>OWASP Nettacker Report</title>', '<title>My Security Scan Tool v2 - Report</title>');
+          const blob = new Blob([newHtml], { type: 'text/html' });
+          saveAs(blob, 'scan-'+scan_id+'.html');
+        })
     }
     
     refetchResults(){

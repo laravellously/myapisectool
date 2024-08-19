@@ -46,6 +46,11 @@ export class AuthService {
         );
     }
     
+    getSingleResult(id: any): Observable<any> {
+      return this._httpClient
+        .get('https://scanner.samzugaskills.com/results/get?id='+id+'&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco')
+    }
+    
     postScanRequest(value: string): Observable<any> {
       // const options = {
       //   key: 'ruvzcgslgdyqrjkusihqdpcqdgqhicgk',

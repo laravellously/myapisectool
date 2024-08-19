@@ -95,6 +95,7 @@
                   <div class="text-4xl font-extrabold leading-none tracking-tight">
                       Scans History
                   </div>
+                  <div (click)="refetchResults()">Refresh</div>
               </div>
           </div>
 
@@ -108,8 +109,7 @@
                     let i = $index
                   ){
 
-                 <a class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10"
-                  href="https://scanner.samzugaskills.com/results/get?id={{result.id}}" target='_blank'>
+                 <div (click)="downloadResult(result.id, result.scan_unique_id)" class="z-20 flex cursor-pointer items-center border-b px-6 py-4 md:px-8 dark:hover:bg-hover hover:bg-gray-10">
                   <div class="ml-4 min-w-0">
                       <div class="truncate font-medium leading-5">
 
@@ -121,7 +121,7 @@
                       </div>
                       <div>{{result.date}}</div>
                   </div>
-              </a>
+              </div>
                    }
               } @else {
               <div class="border-t p-8 text-center text-4xl font-semibold tracking-tight sm:p-16">
@@ -129,7 +129,7 @@
               </div>
                 }
               } @else {
-               <div class="border-t p-8 bg-red-200 text-red-600 text-center text-4xl font-semibold tracking-tight sm:p-16">
+               <div class="border px-8 bg-red-200 text-red-600 text-center text-4xl font-semibold tracking-tight sm:px-16">
                  An error occured while loading results!
                </div>
               }
