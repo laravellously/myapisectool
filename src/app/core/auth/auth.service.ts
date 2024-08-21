@@ -37,7 +37,7 @@ export class AuthService {
 
     getAllResults(): Observable<Result[]> {
       return this._httpClient
-        .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco')
+        .get < Result[] > ('https://scanner.samzugaskills.com/results/get_list?page=1&key=psnfowjvyxhogampexnjiheqrsnpydib')
         .pipe(
           tap((response: any) => {
             // console.log(response)
@@ -48,7 +48,7 @@ export class AuthService {
     
     getSingleResult(id: any): Observable<any> {
       return this._httpClient
-        .get('https://scanner.samzugaskills.com/results/get?id='+id+'&key=jrvophcjpkdnlwqcfzxoqsxfnackpjco', { responseType: 'text' })
+        .get('https://scanner.samzugaskills.com/results/get?id='+id+'&key=psnfowjvyxhogampexnjiheqrsnpydib', { responseType: 'text' })
     }
     
     postScanRequest(value: string): Observable<any> {
@@ -58,7 +58,7 @@ export class AuthService {
       //   profile: 'information_gathering'
       // }
       const body = new HttpParams()
-        .set('key', 'jrvophcjpkdnlwqcfzxoqsxfnackpjco')
+        .set('key', 'psnfowjvyxhogampexnjiheqrsnpydib')
         .set('targets', value)
         .set('profiles', 'information_gathering')
       // const headers = new HttpHeaders()
